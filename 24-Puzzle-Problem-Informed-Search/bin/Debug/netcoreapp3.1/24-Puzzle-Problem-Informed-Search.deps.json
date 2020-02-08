@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "24-Puzzle-Problem-Informed-Search/1.0.0": {
+        "runtime": {
+          "24-Puzzle-Problem-Informed-Search.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "24-Puzzle-Problem-Informed-Search/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
