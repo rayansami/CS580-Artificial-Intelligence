@@ -9,3 +9,5 @@ C:\Users\muddi\Dropbox\ODU\Spring 2020 courses\CS 580 Intro to Artificial Intell
 C:\Users\muddi\Dropbox\ODU\Spring 2020 courses\CS 580 Intro to Artificial Intelligence\CS580-Artificial-Intelligence\24-Puzzle-Problem-Informed-Search\obj\Debug\netcoreapp3.1\24-Puzzle-Problem-Informed-Search.AssemblyInfo.cs
 C:\Users\muddi\Dropbox\ODU\Spring 2020 courses\CS 580 Intro to Artificial Intelligence\CS580-Artificial-Intelligence\24-Puzzle-Problem-Informed-Search\obj\Debug\netcoreapp3.1\24-Puzzle-Problem-Informed-Search.dll
 C:\Users\muddi\Dropbox\ODU\Spring 2020 courses\CS 580 Intro to Artificial Intelligence\CS580-Artificial-Intelligence\24-Puzzle-Problem-Informed-Search\obj\Debug\netcoreapp3.1\24-Puzzle-Problem-Informed-Search.pdb
+C:\Users\muddi\Dropbox\ODU\Spring 2020 courses\CS 580 Intro to Artificial Intelligence\CS580-Artificial-Intelligence\24-Puzzle-Problem-Informed-Search\bin\Debug\netcoreapp3.1\C5.dll
+C:\Users\muddi\Dropbox\ODU\Spring 2020 courses\CS 580 Intro to Artificial Intelligence\CS580-Artificial-Intelligence\24-Puzzle-Problem-Informed-Search\obj\Debug\netcoreapp3.1\24-Puzzle-Problem-Informed-Search.csproj.CopyComplete
