@@ -1,9 +1,9 @@
 ﻿<Properties StartupConfiguration="{C6D75B86-09A6-48B1-8773-AC07EDC347C2}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="InformedSearch.cs">
     <Files>
-      <File FileName="Node.cs" Line="17" Column="34" />
-      <File FileName="Program.cs" Line="15" Column="47" />
-      <File FileName="InformedSearch.cs" Line="100" Column="81" />
+      <File FileName="Node.cs" Line="220" Column="1" />
+      <File FileName="Program.cs" Line="22" Column="47" />
+      <File FileName="InformedSearch.cs" Line="101" Column="40" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
