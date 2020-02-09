@@ -9,25 +9,17 @@ namespace _24_Puzzle_Problem_Informed_Search
     {
         private readonly int ROW;// = 5;
         private readonly int COL;// = 5;    
-        public int fvalue;
-        public int level;
-
-        //const int ARRAY_SIZE = 9;
+        public int fvalue; //sum of the cost to reach THIS node and the heuristic value of THIS node
+        public int level; // the number of moves so far
+        
         private int[,] goalArrangement = new int[,]
-                        {    {9,24,3,5,17},
-                                    {6,13,19,0,10},
-                                    {11,21,22,1,20},
-                                    {16,4,14,12,15},
-                                    {8,18,23,2,7}
-                        };
-
-        /*
-{1,2,3,4,5 },
+                        {   {1,2,3,4,5 },
                             { 6,7,8,9,10},
                             { 11,12,13,14,15},
                             { 16,17,18,19,20},
                             { 21,22,23,24,0}
-             */
+                        };
+
 
         public int[,] arrangement;
         public List<Node> childNodes = new List<Node>();
@@ -47,12 +39,6 @@ namespace _24_Puzzle_Problem_Informed_Search
         public bool IsGoalFound()
         {
             var goalFound = true;
-            //int[,] goalArrangement = new int[,]
-            //                        {
-            //                            {1,2,3},
-            //                            {8,0,4},
-            //                            {7,6,5}
-            //                        };
 
             if (!IsSameArrangement(goalArrangement))
                 goalFound = false;
@@ -62,8 +48,18 @@ namespace _24_Puzzle_Problem_Informed_Search
         }
 
         public bool IsSameArrangement(int[,] arrangementToCheck)
-        {
-            return arrangement.Rank == arrangementToCheck.Rank && Enumerable.Range(0, arrangement.Rank).All(dimension => arrangement.GetLength(dimension) == arrangementToCheck.GetLength(dimension)) && arrangement.Cast<int>().SequenceEqual(arrangementToCheck.Cast<int>());
+        {                        
+            for (var i = 0; i < ROW; i++)
+            {
+                for (int j = 0; j < COL; j++)
+                {
+                    if (arrangement[i, j] != arrangementToCheck[i, j])
+                    {                     
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
 
         public void ExpandNode()
@@ -90,7 +86,7 @@ namespace _24_Puzzle_Problem_Informed_Search
             if (zeroX + 1 < COL)
             {
                 int[,] possibleArrangement = arr.Clone() as int[,];
-                //SwapPositionAndCreateNewChild(possibleArrangement, zeroX + 1, zeroX, zeroY);
+                
                 var zero = possibleArrangement[zeroX, zeroY];
                 possibleArrangement[zeroX, zeroY] = possibleArrangement[zeroX + 1, zeroY];
                 possibleArrangement[zeroX + 1, zeroY] = zero;
@@ -140,14 +136,16 @@ namespace _24_Puzzle_Problem_Informed_Search
         }
         private void createNewChild(int[,] possibleArrangement)
         {
-            Node child = new Node(possibleArrangement,level+1,0);
+            Node child = new Node(possibleArrangement,level+1,0); /* level is always +1 than its parent.
+                                                                     Setting fvalue = 0 initially,will calculate it later on the search process
+                                                                   */
             childNodes.Add(child);
             child.parentNode = this;
         }
 
         public void PrintArrangement()
         {
-            //int idx = 0;
+        
             for (int i = 0; i < ROW; i++)
             {
                 for (int j = 0; j < COL; j++)
@@ -160,37 +158,17 @@ namespace _24_Puzzle_Problem_Informed_Search
         }
         
 
-        // Checking the misplaced positions
+        // Calculating Manhattan distance
         public int Huristics()
-        {
-            int number = 0;
-            int totalMisplacedNumbers = 0;
-            //var manhattanDistance = 0;
+        {                        
+            int manhattanDistance = 0;            
             for (int i = 0; i < ROW; i++)
             {
                 for (int j = 0; j < COL; j++)
                 {
-                    number = arrangement[i, j];
-                    if (arrangement[i, j] != goalArrangement[i, j])
-                    {
-                        totalMisplacedNumbers++;
-                    };
-                }
-            }
 
-            return totalMisplacedNumbers;
-        }
-
-        private int sumDistance(int i, int j, int idealPosX, int idealPosY)
-        {
-            return (Math.Abs(i - idealPosX) + Math.Abs(j - idealPosY));
-        }
-    }
-}
-
-
-/*
- if (number == 1)
+                    int number = arrangement[i, j];
+                    if (number == 1)
                         manhattanDistance += sumDistance(i, j, 0, 0);// Math.Abs(i - 2) + Math.Abs(j-2);
                     if (number == 2)
                         manhattanDistance += sumDistance(i, j, 0, 1);
@@ -238,4 +216,34 @@ namespace _24_Puzzle_Problem_Informed_Search
                         manhattanDistance += sumDistance(i, j, 4, 2);
                     if (number == 24)
                         manhattanDistance += sumDistance(i, j, 4, 3);
+                }
+            }
+
+            //return totalMisplacedNumbers;
+            return manhattanDistance;
+        }      
+
+        private int sumDistance(int i, int j, int idealPosX, int idealPosY)
+        {
+            return (Math.Abs(i - idealPosX) + Math.Abs(j - idealPosY));
+        }
+      
+    }
+}
+
+
+/*
+ * 
+ *          totalMisplacedNumbers = 0;
+            for (int i = 0; i < ROW; i++)
+            {
+                for (int j = 0; j < COL; j++)
+                {
+                    
+                    if (arrangement[i, j] != goalArrangement[i, j])
+                    {
+                        totalMisplacedNumbers++;
+                    };
+                }       
+            }
      */

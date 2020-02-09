@@ -1,0 +1,27 @@
+﻿<Properties StartupConfiguration="{C6D75B86-09A6-48B1-8773-AC07EDC347C2}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="InformedSearch.cs">
+    <Files>
+      <File FileName="Node.cs" Line="17" Column="34" />
+      <File FileName="Program.cs" Line="15" Column="47" />
+      <File FileName="InformedSearch.cs" Line="100" Column="81" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="24-Puzzle-Problem-Informed-Search" expanded="True">
+            <Node name="24-Puzzle-Problem-Informed-Search" expanded="True">
+              <Node name="InformedSearch.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.24-Puzzle-Problem-Informed-Search PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

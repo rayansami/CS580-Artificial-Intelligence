@@ -1,27 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\muddi\\Dropbox\\ODU\\Spring 2020 courses\\CS 580 Intro to Artificial Intelligence\\CS580-Artificial-Intelligence\\24-Puzzle-Problem-Informed-Search\\24-Puzzle-Problem-Informed-Search.csproj": {}
+    "/Users/rayansami/Dropbox/ODU/Spring 2020 courses/CS 580 Intro to Artificial Intelligence/CS580-Artificial-Intelligence/24-Puzzle-Problem-Informed-Search/24-Puzzle-Problem-Informed-Search.csproj": {}
   },
   "projects": {
-    "C:\\Users\\muddi\\Dropbox\\ODU\\Spring 2020 courses\\CS 580 Intro to Artificial Intelligence\\CS580-Artificial-Intelligence\\24-Puzzle-Problem-Informed-Search\\24-Puzzle-Problem-Informed-Search.csproj": {
+    "/Users/rayansami/Dropbox/ODU/Spring 2020 courses/CS 580 Intro to Artificial Intelligence/CS580-Artificial-Intelligence/24-Puzzle-Problem-Informed-Search/24-Puzzle-Problem-Informed-Search.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\muddi\\Dropbox\\ODU\\Spring 2020 courses\\CS 580 Intro to Artificial Intelligence\\CS580-Artificial-Intelligence\\24-Puzzle-Problem-Informed-Search\\24-Puzzle-Problem-Informed-Search.csproj",
+        "projectUniqueName": "/Users/rayansami/Dropbox/ODU/Spring 2020 courses/CS 580 Intro to Artificial Intelligence/CS580-Artificial-Intelligence/24-Puzzle-Problem-Informed-Search/24-Puzzle-Problem-Informed-Search.csproj",
         "projectName": "24-Puzzle-Problem-Informed-Search",
-        "projectPath": "C:\\Users\\muddi\\Dropbox\\ODU\\Spring 2020 courses\\CS 580 Intro to Artificial Intelligence\\CS580-Artificial-Intelligence\\24-Puzzle-Problem-Informed-Search\\24-Puzzle-Problem-Informed-Search.csproj",
-        "packagesPath": "C:\\Users\\muddi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\muddi\\Dropbox\\ODU\\Spring 2020 courses\\CS 580 Intro to Artificial Intelligence\\CS580-Artificial-Intelligence\\24-Puzzle-Problem-Informed-Search\\obj\\",
+        "projectPath": "/Users/rayansami/Dropbox/ODU/Spring 2020 courses/CS 580 Intro to Artificial Intelligence/CS580-Artificial-Intelligence/24-Puzzle-Problem-Informed-Search/24-Puzzle-Problem-Informed-Search.csproj",
+        "packagesPath": "/Users/rayansami/.nuget/packages/",
+        "outputPath": "/Users/rayansami/Dropbox/ODU/Spring 2020 courses/CS 580 Intro to Artificial Intelligence/CS580-Artificial-Intelligence/24-Puzzle-Problem-Informed-Search/obj/",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\muddi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/rayansami/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -58,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.100/RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -9,75 +9,78 @@ namespace _24_Puzzle_Problem_Informed_Search
     public class InformedSearch
     {
         private Node _root;
-        private int nodeDistance;
-        private int distance = int.MaxValue;
+                
         public InformedSearch(Node root)
         {
-            _root = root;
-            nodeDistance = _root.Huristics();
+            _root = root;       
         }
 
         public void Search()
         {
-            var VisitedList = new List<Node>();
-            var pq = new List<Node>();
+            var VisitedList = new List<Node>(); 
+            var pq = new List<Node>(); // Works as Priyority Queue
 
-            int rootfval = _root.Huristics() + _root.level;
+            _root.fvalue = _root.Huristics() + _root.level; // Setting up fvalue for root node
             pq.Add(_root);
 
             while (pq.Count > 0)
             {
                 Console.WriteLine(String.Format("Queue count:{0}", pq.Count));
                 Node current = pq[0];
+                VisitedList.Add(current);
 
                 Console.WriteLine("Currently Expanding:");
                 current.PrintArrangement();
 
-                if (current.IsGoalFound() || current.Huristics() == 0)
+                Console.WriteLine(String.Format("Current huristics:{0}", current.Huristics()));
+                if (current.Huristics() == 0)
                 {
                     Console.WriteLine("Goal Found");
                     Node currentNode = current;
                     PathFinder(currentNode);
                     break;
                 }
-
-                //Console.WriteLine("Children arrangements are:");
-                current.ExpandNode();
-                //for (int i = 0; i < current.childNodes.Count; i++)
-                //{
-                //    var childNode = current.childNodes[i];
-                //    childNode.PrintArrangement();
-                //    var distanceToRoot = childNode.Huristics();
-                //    Console.WriteLine("This arrangement has a cost of:" + distanceToRoot);
-                //}
+                
+                current.ExpandNode();                                
 
                 for (int i = 0; i < current.childNodes.Count; i++)
                 {
                     var childNode = current.childNodes[i];
-                    if (!IsVisited(VisitedList, childNode))
+                    if(IsContained(VisitedList, childNode)) // If childNode is visited once then do nothing and go to next childNode
                     {
-                        childNode.fvalue = childNode.Huristics() + childNode.level;
-                        pq.Add(childNode);
-
+                        continue;
                     }
-                    //else
-                    //{
-                    //    Console.WriteLine("---- Found a visited state! ----");
-                    //    childNode.PrintArrangement();
-                    //    Console.WriteLine("---- # ----");
-                    //}
+
+                    if (!IsContained(pq,childNode)) // (If not visited already)Check if chilNode exists in the priyority queue list already. If not, add to pq
+                    {
+                        childNode.fvalue = childNode.Huristics() + childNode.level; //Calculate fvalue for the childNode
+                        pq.Add(childNode);
+                    }
+                    else
+                    {
+                        // If already existing node has better level (cost to traverse till This node from root), then swap the currentNode with that 
+                        var alreadyExistingNodeIndex = IndexOfExistingNodeInPriyorityQueue(pq,childNode);
+                        Node alreadyExistingNode = pq[alreadyExistingNodeIndex];
+
+                        if(alreadyExistingNode.level < childNode.level)
+                        {
+                            alreadyExistingNode.level = childNode.level;
+                            alreadyExistingNode.fvalue = childNode.fvalue;
+                            alreadyExistingNode.parentNode = childNode.parentNode;
+                        }
+                    }
                 }
 
-                pq.RemoveAt(0);
-                VisitedList.Add(current);                
-                pq.OrderBy(node => node.fvalue).ToList();
-            }
+                pq.RemoveAt(0); // Removing the node that is already traversed with lowest fvalue                    
+                pq = pq.OrderBy(node => node.fvalue).ToList(); //Order the list based of fvalue
+            }            
         }
 
-        private bool IsVisited(List<Node> visitedList, Node childNode)
+        // To check if a node exist in passed list
+        private bool IsContained(List<Node> nodeList, Node childNode)
         {
             var contains = false;
-            foreach (var node in visitedList)
+            foreach (var node in nodeList)
             {
                 if (node.IsSameArrangement(childNode.arrangement))
                 {
@@ -88,16 +91,31 @@ namespace _24_Puzzle_Problem_Informed_Search
             return contains;
         }
 
+        
+        private int IndexOfExistingNodeInPriyorityQueue(List<Node> queueList, Node node)
+        {
+            int index = 0;
+            for(int i=0; i < queueList.Count; i++)
+            {
+                if (node.IsSameArrangement(queueList[i].arrangement))
+                {
+                    index = i;
+                }
+            }
+            return index;
+        }
+
         private void PathFinder(Node currentNode)
         {
-            int moves = 0;
+            int moves = 0;            
+            Console.WriteLine(String.Format("Level Traversed: {0}", currentNode.level));
             while (currentNode != null)
             {
                 currentNode.PrintArrangement();
                 currentNode = currentNode.parentNode;
                 moves++;
             }
-            Console.WriteLine(String.Format("Move required: {0}", (moves - 1)));
+          //  Console.WriteLine(String.Format("Move required: {0}", (moves - 1)));
         }
     }
 }

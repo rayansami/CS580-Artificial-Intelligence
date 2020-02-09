@@ -1,2 +1,2 @@
-# CS580-Artificial-Intelligence-
+# CS580-Artificial-Intelligence
 Assignments
