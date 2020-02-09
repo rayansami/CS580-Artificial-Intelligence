@@ -1,6 +1,7 @@
 ﻿using C5;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace _24_Puzzle_Problem_Informed_Search
@@ -19,23 +20,20 @@ namespace _24_Puzzle_Problem_Informed_Search
         public void Search()
         {
             var VisitedList = new List<Node>();
-            var pq = new PriorityQueue<Node>();
+            var pq = new List<Node>();
 
-            int rootCost = _root.Huristics();
-            pq.Enqueue(_root, rootCost);
+            int rootfval = _root.Huristics() + _root.level;
+            pq.Add(_root);
 
             while (pq.Count > 0)
             {
                 Console.WriteLine(String.Format("Queue count:{0}", pq.Count));
-                Node current = pq.First();
-                //int currentCost = current.ManhattanDistance();
-                VisitedList.Add(current);
-                pq.Dequeue();
+                Node current = pq[0];
 
                 Console.WriteLine("Currently Expanding:");
                 current.PrintArrangement();
 
-                if (current.IsGoalFound())
+                if (current.IsGoalFound() || current.Huristics() == 0)
                 {
                     Console.WriteLine("Goal Found");
                     Node currentNode = current;
@@ -43,32 +41,36 @@ namespace _24_Puzzle_Problem_Informed_Search
                     break;
                 }
 
-                Console.WriteLine("Children arrangements are:");
+                //Console.WriteLine("Children arrangements are:");
                 current.ExpandNode();
-                for (int i = 0; i < current.childNodes.Count; i++)
-                {
-                    var childNode = current.childNodes[i];
-                    childNode.PrintArrangement();
-                    var distanceToRoot = childNode.Huristics();
-                    Console.WriteLine("This arrangement has a cost of:" + distanceToRoot);
-                }
+                //for (int i = 0; i < current.childNodes.Count; i++)
+                //{
+                //    var childNode = current.childNodes[i];
+                //    childNode.PrintArrangement();
+                //    var distanceToRoot = childNode.Huristics();
+                //    Console.WriteLine("This arrangement has a cost of:" + distanceToRoot);
+                //}
 
                 for (int i = 0; i < current.childNodes.Count; i++)
                 {
                     var childNode = current.childNodes[i];
                     if (!IsVisited(VisitedList, childNode))
                     {
-                        pq.Enqueue(childNode, childNode.Huristics());
-                        VisitedList.Add(childNode);
-                    }
-                    else
-                    {
-                        Console.WriteLine("---- Found a visited state! ----");
-                        childNode.PrintArrangement();
-                        Console.WriteLine("---- # ----");
-                    }
+                        childNode.fvalue = childNode.Huristics() + childNode.level;
+                        pq.Add(childNode);
 
+                    }
+                    //else
+                    //{
+                    //    Console.WriteLine("---- Found a visited state! ----");
+                    //    childNode.PrintArrangement();
+                    //    Console.WriteLine("---- # ----");
+                    //}
                 }
+
+                pq.RemoveAt(0);
+                VisitedList.Add(current);                
+                pq.OrderBy(node => node.fvalue).ToList();
             }
         }
 
