@@ -158,7 +158,7 @@ namespace _24_Puzzle_Problem_Informed_Search
         }
         
 
-        // Calculating Manhattan distance
+        // Calculating Manhattan distance. It is faster approach then calculating number of missing tiles.
         public int Huristics()
         {                        
             int manhattanDistance = 0;            
@@ -166,10 +166,9 @@ namespace _24_Puzzle_Problem_Informed_Search
             {
                 for (int j = 0; j < COL; j++)
                 {
-
                     int number = arrangement[i, j];
                     if (number == 1)
-                        manhattanDistance += sumDistance(i, j, 0, 0);// Math.Abs(i - 2) + Math.Abs(j-2);
+                        manhattanDistance += sumDistance(i, j, 0, 0);
                     if (number == 2)
                         manhattanDistance += sumDistance(i, j, 0, 1);
                     if (number == 3)
@@ -218,8 +217,7 @@ namespace _24_Puzzle_Problem_Informed_Search
                         manhattanDistance += sumDistance(i, j, 4, 3);
                 }
             }
-
-            //return totalMisplacedNumbers;
+            
             return manhattanDistance;
         }      
 
@@ -232,7 +230,7 @@ namespace _24_Puzzle_Problem_Informed_Search
 }
 
 
-/*
+/*   Huristics for number of misplaced tiles.
  * 
  *          totalMisplacedNumbers = 0;
             for (int i = 0; i < ROW; i++)

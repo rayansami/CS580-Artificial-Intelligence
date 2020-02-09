@@ -15,6 +15,7 @@ namespace _24_Puzzle_Problem_Informed_Search
             _root = root;       
         }
 
+        // Following A* Search
         public void Search()
         {
             var VisitedList = new List<Node>(); 
@@ -114,8 +115,7 @@ namespace _24_Puzzle_Problem_Informed_Search
                 currentNode.PrintArrangement();
                 currentNode = currentNode.parentNode;
                 moves++;
-            }
-          //  Console.WriteLine(String.Format("Move required: {0}", (moves - 1)));
+            }          
         }
     }
 }
