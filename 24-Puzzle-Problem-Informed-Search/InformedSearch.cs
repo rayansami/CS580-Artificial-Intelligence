@@ -74,7 +74,12 @@ namespace _24_Puzzle_Problem_Informed_Search
 
                 pq.RemoveAt(0); // Removing the node that is already traversed with lowest fvalue                    
                 pq = pq.OrderBy(node => node.fvalue).ToList(); //Order the list based of fvalue
-            }            
+            }          
+
+            if(pq.Count == 0)
+            {
+                  Console.WriteLine("Goal not Found!");
+            }
         }
 
         // To check if a node exist in passed list

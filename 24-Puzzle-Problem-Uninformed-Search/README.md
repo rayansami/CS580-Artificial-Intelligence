@@ -13,6 +13,18 @@ You will find visual studio community edition here: https://visualstudio.microso
 - Please Clean & Rebuild the solution before you start
 - Run
 
+### To run from command line
+- Enter into 24-Puzzle-Problem-Informed-Search folder from cmd
+- To build the project use command: 
+```sh
+dotnet build
+```
+- To run the project use command: 
+```sh
+$ dotnet run
+```
+
+
 #### This project contains both codebase for BFS and DFS
 - In Program.cs you have to comment/uncomment StartBFS()/StartDFS in order to run one that you want to
 - Currently StartDFS is commented.

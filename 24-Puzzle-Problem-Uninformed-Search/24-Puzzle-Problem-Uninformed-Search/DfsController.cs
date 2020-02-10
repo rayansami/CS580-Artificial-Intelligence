@@ -37,9 +37,9 @@ namespace _24_Puzzle_Problem_Uninformed_Search
                     PathFinder(currentNode);
                     break;
                 }
-
-                //Console.WriteLine("Children arrangements are:");
+                
                 currentNode.ExpandNode();
+                //Console.WriteLine("Children arrangements are:");
                 //currentNode.childNodes.ForEach(node => node.PrintArrangement());
                 for (int i = 0; i < currentNode.childNodes.Count; i++)
                 {

@@ -39,6 +39,8 @@ namespace _24_Puzzle_Problem_Uninformed_Search
                 }
 
                 currentNode.ExpandNode();
+                //Console.WriteLine("Children arrangements are:");
+                currentNode.childNodes.ForEach(node => node.PrintArrangement());
                 for (int i = 0; i < currentNode.childNodes.Count; i++)
                 {
                     Node child = currentNode.childNodes[i];
