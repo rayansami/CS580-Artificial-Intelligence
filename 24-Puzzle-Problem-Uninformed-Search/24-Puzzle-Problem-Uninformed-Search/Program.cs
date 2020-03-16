@@ -16,9 +16,9 @@ namespace _24_Puzzle_Problem_Uninformed_Search
 
             startTime = DateTime.Now;
             /* -- BFS -- */
-            //StartBFS(root);
+            StartBFS(root);
             /* -- DFS -- */
-            StartDFS(root);            
+            //StartDFS(root);            
             endTime = DateTime.Now;
 
             var elapseTime = ((TimeSpan)(endTime - startTime)).TotalSeconds;

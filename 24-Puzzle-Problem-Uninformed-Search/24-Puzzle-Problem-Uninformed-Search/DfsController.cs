@@ -56,6 +56,9 @@ namespace _24_Puzzle_Problem_Uninformed_Search
                     }
                 }
             }
+
+            if (StackList.Count == 0)
+                Console.WriteLine("Goal wasn not found!");
         }
 
         private bool IsVisited(List<Node> visitedList, Node nodeToCheck)

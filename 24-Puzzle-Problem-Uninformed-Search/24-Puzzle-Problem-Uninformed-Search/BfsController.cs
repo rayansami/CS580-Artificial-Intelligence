@@ -40,7 +40,7 @@ namespace _24_Puzzle_Problem_Uninformed_Search
 
                 currentNode.ExpandNode();
                 //Console.WriteLine("Children arrangements are:");
-                currentNode.childNodes.ForEach(node => node.PrintArrangement());
+                //currentNode.childNodes.ForEach(node => node.PrintArrangement());
                 for (int i = 0; i < currentNode.childNodes.Count; i++)
                 {
                     Node child = currentNode.childNodes[i];
@@ -57,6 +57,9 @@ namespace _24_Puzzle_Problem_Uninformed_Search
                     }
                 }
             }
+
+            if(Queue.Count == 0)
+                Console.WriteLine("Goal wasn not found!");
         }
 
         private bool IsVisited(List<Node> visitedList, Node nodeToCheck)
